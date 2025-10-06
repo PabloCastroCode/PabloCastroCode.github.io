@@ -1,9 +1,62 @@
-.hero{display:grid;place-items:center;gap:12px;padding:24px 0 8px}
-.about-box{max-width:800px;padding:28px;text-align:center}
-.about-box p{margin:0}
-.resume-btn{margin-top:10px}
-.blog{margin-top:28px}
-.blog .entry{display:grid;grid-template-columns:160px 1fr;gap:16px;align-items:start;padding:18px;border:1px solid var(--border);border-radius:16px;background:rgba(23,28,49,.6)}
-.blog .entry img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
-.blog .entry h4{margin:0 0 6px 0}
-@media (max-width:700px){.blog .entry{grid-template-columns:1fr}}
+/* ABOUT / HERO / BLOG — warm minimalist theme */
+.hero{
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  padding: 24px 0 8px;
+  background: transparent;                /* keep the page’s beige background */
+}
+
+.about-box{
+  max-width: 800px;
+  padding: 28px;
+  text-align: center;
+  background: var(--card);                /* crisp white card */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.about-box p{ margin: 0; color: var(--muted); }
+
+.resume-btn{ margin-top: 10px; }
+
+.blog{ margin-top: 28px; }
+
+/* Each diary entry card */
+.blog .entry{
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);                /* was rgba(23,28,49,.6) */
+  box-shadow: var(--shadow);
+}
+
+/* Image + text inside entry */
+.blog .entry img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+}
+.blog .entry h4{
+  margin: 0 0 6px 0;
+  color: var(--text);
+}
+
+/* Thin divider style (if you use <hr class="divider"> between entries) */
+hr.divider{
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  margin: 18px 0;
+}
+
+@media (max-width:700px){
+  .blog .entry{ grid-template-columns: 1fr; }
+}
