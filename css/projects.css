@@ -7,9 +7,10 @@
 
 /* Vertical timeline bar */
 .timeline {
-  position: relative;
-  padding-top: 4px;
+  position: relative;          /* anchor for absolutely-positioned ticks */
+  padding-top: 0;              /* no need for padding to move text */
 }
+
 .timeline::before {
   content: "";
   position: absolute;
@@ -21,26 +22,30 @@
   background: linear-gradient(180deg, var(--line), var(--border));
 }
 
-/* Month / Year tick marks */
+/* Ticks will be absolutely positioned by JS; remove spacing from layout */
 .tick {
-  position: relative;
-  padding-left: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* center on its top value */
+  margin: 0;                         /* important: no layout push */
+  padding: 0;
   text-align: center;
   color: var(--muted);
   font-size: 14px;
-  margin: 50px 0;
+  padding-top: 5px;
 }
+
 .tick::before {
   content: "";
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 0;                            /* centered via translate on parent */
+  transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  background: var(--primary);         /* warm brown tick dot */
+  background: var(--primary);
   border-radius: 50%;
   border: 2px solid var(--border);
-  top: 0;
 }
 
 /* Project grid and cards */

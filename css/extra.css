@@ -1,1 +1,57 @@
 .placeholder{padding:40px;text-align:center;border:1px dashed var(--border);border-radius:16px}
+
+.thank-box {
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 24px 28px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.thank-box {
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 32px 28px;                /* roomy so images don’t touch edges */
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--card);           /* white in light mode, dark in dark mode */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+/* Vertical column of photos inside the same box */
+.thank-gallery-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;                         /* space between photos */
+  margin-top: 24px;
+}
+
+.thank-gallery-vertical img {
+  width: 100%;                        /* centered and smaller than the card */
+  max-width: 720px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: zoom-in;
+}
+
+.thank-gallery-vertical img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 28px rgba(50, 40, 30, 0.18);
+}

@@ -78,3 +78,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   root.style.transition = 'background-color 0.3s ease, color 0.3s ease';
 });
+
+// --- Sync timeline dots to the vertical center of each project row ---
+(function () {
+  const timeline = document.querySelector('.timeline');
+  const rows = document.querySelectorAll('.project-rows .project-row');
+  const ticks = timeline ? timeline.querySelectorAll('.tick') : [];
+
+  if (!timeline || !rows.length || !ticks.length) return;
+
+  function positionTicks() {
+    const tlTop = timeline.getBoundingClientRect().top + window.scrollY;
+
+    rows.forEach((row, i) => {
+      const tick = ticks[i];
+      if (!tick) return;
+
+      const r = row.getBoundingClientRect();
+      const rowMiddle = r.top + window.scrollY + r.height / 2;
+
+      tick.style.top = (rowMiddle - tlTop) + 'px';
+    });
+  }
+
+  // Position now and on resize
+  positionTicks();
+  window.addEventListener('resize', positionTicks);
+
+  // If images load later and change heights, re-run once they’re done
+  window.addEventListener('load', positionTicks);
+})();
