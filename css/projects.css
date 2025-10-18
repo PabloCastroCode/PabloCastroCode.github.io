@@ -1,58 +1,18 @@
 /* PROJECTS — warm minimalist palette */
 .projects-layout {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 24px;
-}
-
-/* Vertical timeline bar */
-.timeline {
-  position: relative;          /* anchor for absolutely-positioned ticks */
-  padding-top: 0;              /* no need for padding to move text */
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--line), var(--border));
-}
-
-/* Ticks will be absolutely positioned by JS; remove spacing from layout */
-.tick {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);  /* center on its top value */
-  margin: 0;                         /* important: no layout push */
-  padding: 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: 14px;
-  padding-top: 5px;
-}
-
-.tick::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;                            /* centered via translate on parent */
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  background: var(--primary);
-  border-radius: 50%;
-  border: 2px solid var(--border);
+  gap: 32px;
+  grid-template-columns: 1fr;
+  padding: 0 10px;
 }
 
 /* Project grid and cards */
-.project-rows {
+.project-row {
   display: grid;
-  gap: 28px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
+
 .project-row {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
